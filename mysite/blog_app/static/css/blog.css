@@ -1,0 +1,123 @@
+:root{
+  --bg-mode: rgb(0, 0, 0);
+  --form-bg-mode: rgb(37, 36, 36);
+  --comment-bg-mode: rgb(66, 66, 66);
+  --color: rgb(255, 255, 255);
+  color:rgb(151, 151, 151)
+}
+
+body{
+  background-color: var(--bg-mode);
+  color: var(--color);
+} 
+.cl-mode-btn{
+  background-color: var(--bg-mode);
+  color: var(--color);
+  border-radius: 50%;
+  position: absolute;
+}
+a {
+  color:var(--color);
+}
+.cl-mode-icon{
+  color:var(--color);
+}
+.cl-mode-icon:hover{
+  color:rgb(42, 49, 141);
+  cursor: pointer;
+}
+
+.light-container{
+  background-color: var(--form-bg-mode);
+  color:var(--color);
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.postblock{
+  background-color: var(--form-bg-mode);
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+ }
+
+ .postcomment{
+  font-family: 'Lora', sans-serif;
+  background-color: var(--comment-bg-mode);
+  font-size: 1.2em;
+  text-align: left;
+  overflow-wrap: break-word;
+  border: solid 1px rgb(224, 222, 222);
+  padding: 5px 0px 0px 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+ }
+
+
+.nav-padding{
+  padding: 30px;
+}
+
+.techfont{
+     font-family: 'Lora', sans-serif;
+     font-size: 1.5em;
+     margin-bottom: 10px;
+ }
+
+.bigbrand{
+   font-family: 'Roboto Condensed', sans-serif;
+   font-size: 2.5em;
+ }
+.centerstage{
+   margin-right: auto;
+   margin-left: auto;
+}
+
+.postdate{
+ padding: 2px;
+ text-align: left;
+ font-size: 1em;
+}
+.posttitle{
+ font-family: 'Roboto Condensed', sans-serif;
+ font-size: 2.5em;
+ text-align: left;
+}
+
+.postcontent{
+ font-family: 'Lora', sans-serif;
+ font-size: 2em;
+ text-align: left;
+}
+
+@media (min-width: 481px) and (max-width: 480px) {
+.postblock{width: 100%;}
+.btn-comment{position: absolute; left: 250px; padding: 5px;}
+}
+
+@media (min-width: 1281px){
+.postblock{ width: 150%;}
+.btn-comment{position: absolute; right: 250px;}
+}
+
+.removeapprove{
+  text-align: left;
+}
+
+
+/* COLOR CHANGER BELOW */
+/* .loader {
+   filter:hue-rotate(0deg);
+   color:linear-gradient(45deg,#0f8,#08f);
+   animation:hue 10000ms infinite linear;
+ }
+
+ @keyframes hue{
+   0%{filter: hue-rotate(0deg);}
+   100%{filter:hue-rotate(360deg);}
+ } */
