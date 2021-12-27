@@ -7,16 +7,16 @@ window.addEventListener('load',function(){
         const variables1 = document.querySelector(':root');
         console.log("Im in")
         variables1.style.setProperty('--bg-mode', 'rgb(255, 255, 255)');
-        variables1.style.setProperty('--form-bg-mode', 'rgb(220, 220, 220)');
-        variables1.style.setProperty('--comment-bg-mode', 'rgb(240, 240, 240)');
+        variables1.style.setProperty('--form-bg-mode', 'rgb(240, 240, 240)');
+        variables1.style.setProperty('--comment-bg-mode', 'rgb(255, 255, 255)');
         variables1.style.setProperty('--color', 'rgb(0, 0, 0)');
     }
         else{
             document.getElementById('mode-btn').checked = true
             const variables2 = document.querySelector(':root');
             variables2.style.setProperty('--bg-mode', 'rgb(0, 0, 0)');
-            variables2.style.setProperty('--form-bg-mode', 'rgb(30, 30, 30)');
-            variables2.style.setProperty('--comment-bg-mode', 'rgb(45, 45, 45)');
+            variables2.style.setProperty('--form-bg-mode', 'rgb(15, 15, 15)');
+            variables2.style.setProperty('--comment-bg-mode', 'rgb(0, 0, 0)');
             variables2.style.setProperty('--color', 'rgb(255, 255, 255)');
         }
 
@@ -27,13 +27,13 @@ window.addEventListener('load',function(){
             console.log(variables);
         if (el.target.checked){
             variables.style.setProperty('--bg-mode', 'rgb(0, 0, 0)');
-            variables.style.setProperty('--form-bg-mode', 'rgb(30, 30, 30)');
-            variables.style.setProperty('--comment-bg-mode', 'rgb(45, 45, 45)');
+            variables.style.setProperty('--form-bg-mode', 'rgb(15, 15, 15)');
+            variables.style.setProperty('--comment-bg-mode', 'rgb(0, 0, 0)');
             variables.style.setProperty('--color', 'rgb(255, 255, 255)');
         }else {
             variables.style.setProperty('--bg-mode', 'rgb(255, 255, 255)');
-            variables.style.setProperty('--form-bg-mode', 'rgb(220, 220, 220)');
-            variables.style.setProperty('--comment-bg-mode', 'rgb(240, 240, 240)');
+            variables.style.setProperty('--form-bg-mode', 'rgb(240, 240, 240)');
+            variables.style.setProperty('--comment-bg-mode', 'rgb(255, 255, 255)');
             variables.style.setProperty('--color', 'rgb(0, 0, 0)');
         }
             localStorage.setItem('btn_checked', el.target.checked);

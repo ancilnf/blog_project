@@ -5,13 +5,14 @@
 
     {% for post in post_list %}
     <div class="post postblock">
-        <h1><a href="{% url 'post_detail' pk=post.pk %}"> {{ post.title }}</a></h1>
+        <h1 class='posttitle'><a href="{% url 'post_detail' pk=post.pk %}"> {{ post.title }}</a></h1>
         <div class="date">
             <p>Published on: {{ post.published_date|date:'d-m-Y' }}</p>
         </div>
         <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
-
     </div>
+    {% empty %}
+    <p class="postblock postcontent">No Posts.</p>
     {% endfor %}
 
 </div>

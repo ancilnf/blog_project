@@ -1,11 +1,17 @@
 {% extends 'blog_app/base.html' %}
 
 {% block content %}
-    {% for post in posts %}
-    <div class="post">
-        <p class="date">created: {{ post.created_date|date:'d-m-Y' }}</p>
-        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-        <p>{{ post.text|truncatechars:200 }}</p>
+<div class="centerstage">
+    {% for post in post_draft_list %}
+    <div class="post postblock">
+        <p class="date" style="padding-top:15px">Created on: {{ post.created_date|date:'d-m-Y' }}</p>
+        <h1 class='posttitle'><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+    <div class="postcontent">
+        <p>{{ post.text|safe|truncatechars:200|linebreaksbr }}</p>
     </div>
+</div>
+    {% empty %}
+    <p class="postblock postcontent">No drafts.</p>
     {% endfor %}
+</div>
 {% endblock %}

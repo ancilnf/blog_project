@@ -10,6 +10,7 @@
             </div>
         {% else %}
           <a class="btn btn-success cl-mode-icon" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+          <a class="btn btn-outline-warning cl-mode-icon" href="{% url 'post_draft_list' %}">Drafts List</a>
         {% endif %}
             <div class="postcontent">
             <p>{{ post.text|safe|linebreaksbr }}</p>

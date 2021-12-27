@@ -40,14 +40,14 @@ a {
 .postblock{
   background-color: var(--form-bg-mode);
   border-radius: 5px;
-  padding-left: 10px;
+  padding-left: 15px;
   padding-right: 10px;
   padding-bottom: 20px;
   margin-bottom: 10px;
  }
 
  .postcomment{
-  font-family: 'Lora', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   background-color: var(--comment-bg-mode);
   font-size: 1.2em;
   text-align: left;
@@ -64,7 +64,7 @@ a {
 }
 
 .techfont{
-     font-family: 'Lora', sans-serif;
+     font-family: 'Staatliches', cursive;
      font-size: 1.5em;
      margin-bottom: 10px;
  }
@@ -90,8 +90,8 @@ a {
 }
 
 .postcontent{
- font-family: 'Lora', sans-serif;
- font-size: 2em;
+ font-family: 'Open Sans', sans-serif;
+ font-size: 1.75em;
  text-align: left;
 }
 
