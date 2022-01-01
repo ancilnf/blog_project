@@ -70,7 +70,7 @@ window.addEventListener('load',function(){
 });
 
 function weatherBalloon(cityID) {
-    var key = '60d7a2f1a6ebc07803526f75beb458ac';
+    var key = '';
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityID}&units=metric&APPID=${key}`)
     .then(res=> res.json())
     .then(function (data){
