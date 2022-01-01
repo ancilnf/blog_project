@@ -113,6 +113,7 @@ a {
  text-align: left;
  font-size: 1em;
 }
+
 .posttitle{
  font-family: 'Roboto Condensed', sans-serif;
  font-size: 2.5em;
@@ -127,14 +128,14 @@ a {
 
 @media (min-width: 481px) and (max-width: 480px) {
 .postblock{width: 100%;}
-.btn-comment{position: absolute; left: 250px; padding: 5px;}
+.btn-comment{position: relative; float: right}
 }
 
 @media (min-width: 1281px){
-.postblock{ width: 150%;}
-.btn-comment{position: absolute; right: 250px;}
+.postblock{ width: 100%;}
+.btn-comment{position: relative; float:right; margin-right: 10px;}
 }
-
+/* left: 800px; */
 .removeapprove{
   text-align: left;
 }
@@ -174,4 +175,38 @@ a {
   .switch__label:hover{
     transition: 0.5s;
     transform: scale(1.2);
+  }
+
+
+  .weather-api{
+    border-radius: 5px;
+    background-color: var(--form-bg-mode);
+  }
+
+  #openweathercredits{
+    opacity: 0.8;
+    font-size: 0.65em;
+    text-align: center;
+  }
+  #openweathercredits span{
+    color: rgb(228, 117, 38);
+  }
+  
+  .description{
+    color: slateblue;
+    padding: 2px;
+    text-align: left;
+    font-size: 2em;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: capitalize;
+  }
+
+  #weather_button{
+    /* float: right; */
+    max-width: 100%;
+  }
+  .city{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    max-width: 100%;
   }

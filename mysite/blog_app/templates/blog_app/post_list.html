@@ -2,7 +2,6 @@
 
 {% block content %}
 <div class="centerstage">
-
     {% for post in post_list %}
     <div class="post postblock">
         <h1 class='posttitle'><a href="{% url 'post_detail' pk=post.pk %}"> {{ post.title }}</a></h1>
@@ -14,6 +13,28 @@
     {% empty %}
     <p class="postblock postcontent">No Posts.</p>
     {% endfor %}
-
 </div>
 {% endblock %}
+
+{% block weather %}
+<div class="col-3 weather-api">
+ 
+    <form id = "locationData">
+     <div class='form-group'></div>
+     <h1 class='techfont mt-2'>Weather</h1>
+     <input class='form-control city' id='city' type="text" placeholder="Search for a city" autofocus>
+     <button id= 'weather_button'class="btn btn-outline-info form-group mt-1 px-50" type="submit">SUBMIT</button>
+    </form>
+    <div class="">
+        <div class='description' id="description"></div>
+        <h3 id="temp"></h3>
+        <h5 id="temp-max"></h5>
+        <h5 id="temp-min"></h5>
+        <h6 id="location"></h6>
+        <h6 id="country"></h6>
+        <hr>
+        <div id="openweathercredits"></div>
+    </div>
+ 
+    </div>
+    {% endblock %}
