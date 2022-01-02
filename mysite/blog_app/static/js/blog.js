@@ -57,13 +57,18 @@ window.addEventListener('load',function(){
     }); 
 
 // WEATHER API FETCH
+    var weatherBtn = localStorage.getItem('weather_data');
+    if(weatherBtn!== null){
+        document.getElementById("city").value = weatherBtn;
+        weatherBalloon(weatherBtn)
+    }
 
     const location = document.getElementById("locationData");
     location.addEventListener('submit', (event) =>{
         event.preventDefault();
 
         const city= location.elements['city'].value
-        console.log(city)
+        localStorage.setItem('weather_data', city);
     
         weatherBalloon(city)
 })
@@ -91,8 +96,8 @@ function weatherBalloon(cityID) {
     })
       .catch((error) => {
           console.error("GET ERROR", error);
-          document.getElementById('description').innerHTML = "Incorrect City name. Please try again.";
-          document.getElementById('temp').innerHTML ='';
+          document.getElementById('description').innerHTML = 'Error';
+          document.getElementById('temp').innerHTML ='Please check country name and try again.';
           document.getElementById('temp-max').innerHTML = '';
           document.getElementById('temp-min').innerHTML = '';
 	      document.getElementById('location').innerHTML = '';

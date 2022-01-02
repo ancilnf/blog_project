@@ -126,9 +126,12 @@ a {
  text-align: left;
 }
 
-@media (min-width: 481px) and (max-width: 480px) {
+@media (min-width: 481px) and (max-width: 768px) {
 .postblock{width: 100%;}
 .btn-comment{position: relative; float: right}
+body {
+  text-align: center;
+}
 }
 
 @media (min-width: 1281px){
@@ -187,6 +190,7 @@ a {
     opacity: 0.8;
     font-size: 0.65em;
     text-align: center;
+    margin-bottom: 10px;
   }
   #openweathercredits span{
     color: rgb(228, 117, 38);
