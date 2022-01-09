@@ -13,6 +13,7 @@ window.addEventListener('load', ()=> {
         variables1.style.setProperty('--comment-bg-mode', 'rgb(240, 240, 240)');
         variables1.style.setProperty('--color', 'rgb(0, 0, 0)');
         variables1.style.setProperty('--mode-icon-color', 'rgb(0, 26, 255)');
+        variables1.style.setProperty('--box-shadow', '0 10px 6px -8px #777');
 
         const darkMode = document.querySelector('.switch__label');
             darkMode.classList.remove("bi-brightness-high");
@@ -27,10 +28,11 @@ window.addEventListener('load', ()=> {
             document.getElementById('switchld').checked = true
             const variables2 = document.querySelector(':root');
             variables2.style.setProperty('--bg-mode', 'linear-gradient(270deg, #101118,#0e0d0d)');
-            variables2.style.setProperty('--form-bg-mode', 'rgb(0, 0, 0)');
+            variables2.style.setProperty('--form-bg-mode', 'rgb(30, 30, 30)');
             variables2.style.setProperty('--comment-bg-mode', 'rgb(15, 15, 15)');
             variables2.style.setProperty('--color', 'rgb(255, 255, 255)');
             variables2.style.setProperty('--mode-icon-color', 'rgb(238, 255, 0)');
+            variables2.style.setProperty('--box-shadow', '0 10px 6px -8px rgb(0, 0, 0)');
 
         const lightMode = document.querySelector('.switch__label');
             lightMode.classList.remove("bi-moon-stars");
@@ -47,10 +49,11 @@ window.addEventListener('load', ()=> {
         //Dark Mode
         if (el.target.checked){
             variables.style.setProperty('--bg-mode', 'linear-gradient(270deg, #101118,#0e0d0d)');
-            variables.style.setProperty('--form-bg-mode', 'rgb(0, 0, 0)');
+            variables.style.setProperty('--form-bg-mode', 'rgb(30, 30, 30)');
             variables.style.setProperty('--comment-bg-mode', 'rgb(15, 15, 15)');
             variables.style.setProperty('--color', 'rgb(255, 255, 255)');
             variables.style.setProperty('--mode-icon-color', 'rgb(238, 255, 0)')
+            variables.style.setProperty('--box-shadow', '0 10px 6px -8px rgb(0, 0, 0)');
 
         const lightMode = document.querySelector('.switch__label');
             lightMode.classList.remove("bi-moon-stars");
@@ -68,6 +71,7 @@ window.addEventListener('load', ()=> {
             variables.style.setProperty('--comment-bg-mode', 'rgb(240, 240, 240)');
             variables.style.setProperty('--color', 'rgb(0, 0, 0)');
             variables.style.setProperty('--mode-icon-color', 'rgb(0, 26, 255)')
+            variables.style.setProperty('--box-shadow', '0 10px 6px -8px #777');
 
         const darkMode = document.querySelector('.switch__label');
             darkMode.classList.remove("bi-brightness-high");
