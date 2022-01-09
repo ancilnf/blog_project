@@ -24,24 +24,24 @@
 
 <body>
 <!-- NAVBARS -->
-    <nav class="navbar navbar-expand-lg techfont navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand bigbrand nav-padding link-text-brand" href="{% url 'post_list' %}">My Blog</a>
+    <nav class="navbar navbar-expand-lg techfont">
+        <div class="container-fluid" id="navbarContent">
+            <a class="navbar-brand nav-padding link-text-brand" id="bigbrand" href="{% url 'post_list' %}">My Blog</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-             <ul class="nav nav-pills ms-auto nav-fill" style="background-color: #d6d6d6; border-radius: 15px;">
-                <li class="nav-item"><a class="nav-link link-dark link-text" aria-current="page" href="{% url 'post_list' %}">Home</a></li>
-                <li class="nav-item"><a class="nav-link link-dark link-text" aria-current="page" href="{% url 'about' %}">About</a></li>
-                <li class="nav-item"><a class="nav-link link-dark link-text" aria-current="page" href="https://www.github.com/ancilnf/" target="_blank" rel="noreferrer noopener">GitHub</a></li>
-                <li class="nav-item"><a class="nav-link link-dark link-text" aria-current="page" href="https://www.linkedin.com/in/ancil-fernandes/" target="_blank" rel="noreferrer noopener">LinkedIn</a></li>
+          <div class="collapse navbar-collapse nav-fill" id="navbarSupportedContent">
+             <ul class="nav nav-pills ms-auto nav-fill">
+                <li class="nav-item"><a class="nav-link link-text" aria-current="page" href="{% url 'post_list' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link link-text" aria-current="page" href="{% url 'about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link link-text" aria-current="page" href="https://www.github.com/ancilnf/" target="_blank" rel="noreferrer noopener">GitHub</a></li>
+                <li class="nav-item"><a class="nav-link link-text" aria-current="page" href="https://www.linkedin.com/in/ancil-fernandes/" target="_blank" rel="noreferrer noopener">LinkedIn</a></li>
 
               {% if user.is_authenticated %}
-               <li class="nav-item"><a class="nav-link link-dark link-text" aria-current="page" href="{% url 'post_new' %}">New Post</a></li>
-               <li class="nav-item"><a class="nav-link link-dark link-text" aria-current="page" href="{% url 'post_draft_list' %}">Drafts</a></li>
-               <li class="nav-item"><a class="nav-link bigbrand link-text" style="font-size: 1em;">Welcome: {{ user.username }}</a></li>
+               <li class="nav-item"><a class="nav-link link-text " aria-current="page" style="text-align: end; color: rgb(8, 128, 14);" href="{% url 'post_new' %}">New Post</a></li>
+               <li class="nav-item"><a class="nav-link link-text" aria-current="page" href="{% url 'post_draft_list' %}">Drafts</a></li>
+               <li class="nav-item"><a class="nav-link bigbrand" style="color: rgb(93, 79, 180);">Welcome: {{ user.username }}</a></li>
                <li class="nav-item"><a class="nav-link link-primary link-text-log" title="Log Out" aria-current="page" href="{% url 'logout' %}"><i class="bi bi-person-x-fill"></i></a></li>
               {% else %}
                <li class="nav-item"><a class="nav-link link-primary link-text-log" title="Log In" aria-current="page" href="{% url 'login' %}"><i class="bi bi-person-circle"></i></a></li>
@@ -57,7 +57,7 @@
         </div>
 
       </nav>
-    
+      
       <div class="content container loader">
         <div class="d-flex flex-row">
           <div class="col-9 p-2">
@@ -65,11 +65,11 @@
                 {% block content %}
                 {% endblock %}
               </div>
-          </div>
-
+            </div>
+            <div class="col-3 p-2">
              {% block weather %}
              {% endblock %}
-
+            </div>
           </div>
     </div>
 

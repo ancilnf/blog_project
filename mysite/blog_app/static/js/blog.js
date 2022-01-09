@@ -1,91 +1,137 @@
 
-window.addEventListener('load',function(){
+window.addEventListener('load', ()=> {
+    triggerWindowRefresh();
 
     var button = localStorage.getItem('btn_checked');
+
+    //Light Mode
     if (button === 'false') {
         document.getElementById('switchld').checked = false
         const variables1 = document.querySelector(':root');
-        variables1.style.setProperty('--bg-mode', 'rgb(235, 235, 235)');
+        variables1.style.setProperty('--bg-mode', 'linear-gradient(90deg,#f5f7fa,#c3cfe2)');
         variables1.style.setProperty('--form-bg-mode', 'rgb(255, 255, 255)');
         variables1.style.setProperty('--comment-bg-mode', 'rgb(240, 240, 240)');
         variables1.style.setProperty('--color', 'rgb(0, 0, 0)');
-        variables1.style.setProperty('--mode-icon-color', 'rgb(235, 235, 235)')
+        variables1.style.setProperty('--mode-icon-color', 'rgb(0, 26, 255)');
 
         const darkMode = document.querySelector('.switch__label');
-            darkMode.classList.remove("bi-brightness-high")
-            darkMode.classList.add("bi-moon-stars")
+            darkMode.classList.remove("bi-brightness-high");
+            darkMode.classList.add("bi-moon-stars");
+
+        const navIcon= document.querySelector(".techfont");
+            navIcon.classList.remove("navbar-dark");
+            navIcon.classList.add("navbar-light");
     }
+    //Dark Mode
         else{
             document.getElementById('switchld').checked = true
             const variables2 = document.querySelector(':root');
-            variables2.style.setProperty('--bg-mode', 'rgb(20, 20, 20)');
+            variables2.style.setProperty('--bg-mode', 'linear-gradient(270deg, #101118,#0e0d0d)');
             variables2.style.setProperty('--form-bg-mode', 'rgb(0, 0, 0)');
             variables2.style.setProperty('--comment-bg-mode', 'rgb(15, 15, 15)');
             variables2.style.setProperty('--color', 'rgb(255, 255, 255)');
-            variables2.style.setProperty('--mode-icon-color', 'rgb(238, 255, 0)')
+            variables2.style.setProperty('--mode-icon-color', 'rgb(238, 255, 0)');
 
-            const lightMode = document.querySelector('.switch__label');
-            lightMode.classList.remove("bi-moon-stars")
-            lightMode.classList.add("bi-brightness-high")
+        const lightMode = document.querySelector('.switch__label');
+            lightMode.classList.remove("bi-moon-stars");
+            lightMode.classList.add("bi-brightness-high");
+            
+        const navIcon= document.querySelector(".techfont");
+            navIcon.classList.remove("navbar-light");
+            navIcon.classList.add("navbar-dark");
+
         }
 
     const btnClicked = document.getElementById('switchld').addEventListener('change', (el) => {
             const variables = document.querySelector(':root');
+        //Dark Mode
         if (el.target.checked){
-            variables.style.setProperty('--bg-mode', 'rgb(20, 20, 20)');
+            variables.style.setProperty('--bg-mode', 'linear-gradient(270deg, #101118,#0e0d0d)');
             variables.style.setProperty('--form-bg-mode', 'rgb(0, 0, 0)');
             variables.style.setProperty('--comment-bg-mode', 'rgb(15, 15, 15)');
             variables.style.setProperty('--color', 'rgb(255, 255, 255)');
             variables.style.setProperty('--mode-icon-color', 'rgb(238, 255, 0)')
 
-            const lightMode = document.querySelector('.switch__label');
-            lightMode.classList.remove("bi-moon-stars")
-            lightMode.classList.add("bi-brightness-high")
+        const lightMode = document.querySelector('.switch__label');
+            lightMode.classList.remove("bi-moon-stars");
+            lightMode.classList.add("bi-brightness-high");
 
-        }else {
-            variables.style.setProperty('--bg-mode', 'rgb(235, 235, 235)');
+        const navIcon= document.querySelector(".techfont");
+            navIcon.classList.remove("navbar-light");
+            navIcon.classList.add("navbar-dark");
+
+        }
+        //Light Mode
+        else {
+            variables.style.setProperty('--bg-mode', 'linear-gradient(90deg,#f5f7fa,#c3cfe2)');
             variables.style.setProperty('--form-bg-mode', 'rgb(255, 255, 255)');
             variables.style.setProperty('--comment-bg-mode', 'rgb(240, 240, 240)');
             variables.style.setProperty('--color', 'rgb(0, 0, 0)');
-            variables.style.setProperty('--mode-icon-color', 'rgb(235, 235, 235)')
+            variables.style.setProperty('--mode-icon-color', 'rgb(0, 26, 255)')
 
-            const darkMode = document.querySelector('.switch__label');
-            darkMode.classList.remove("bi-brightness-high")
-            darkMode.classList.add("bi-moon-stars")
+        const darkMode = document.querySelector('.switch__label');
+            darkMode.classList.remove("bi-brightness-high");
+            darkMode.classList.add("bi-moon-stars");
+
+        const navIcon= document.querySelector(".techfont");
+            navIcon.classList.remove("navbar-dark");
+            navIcon.classList.add("navbar-light");
         }
             localStorage.setItem('btn_checked', el.target.checked);
     }); 
 
 // WEATHER API FETCH
+try {
     var weatherBtn = localStorage.getItem('weather_data');
-    if(weatherBtn!== null){
-        document.getElementById("city").value = weatherBtn;
-        weatherBalloon(weatherBtn)
-    }
 
-    const location = document.getElementById("locationData");
-    location.addEventListener('submit', (event) =>{
+    var city= document.getElementById("city");
+    
+     if(weatherBtn !== null && weatherBtn !== ''){
+         if(city.value !== null){
+        document.getElementById("city").value = weatherBtn;
+
+        weatherBalloon(weatherBtn);
+     }
+     else{
+        weatherBalloon('Earth');
+     }
+    }
+  
+        document.getElementById("city").addEventListener('blur', (event) =>{
         event.preventDefault();
 
-        const city= location.elements['city'].value
+        const city= document.getElementById("city").value;
+        loadImg(city);
         localStorage.setItem('weather_data', city);
-    
-        weatherBalloon(city)
-})
+
+        if (city !== ''){
+         weatherBalloon(city);
+        }
+        else{
+            weatherBalloon('Earth');
+        }
+     });
+    }
+    catch(err) {}
 });
 
+//Weather API
 function weatherBalloon(cityID) {
-    var key = '';
+    var key = '60d7a2f1a6ebc07803526f75beb458ac';
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityID}&units=metric&APPID=${key}`)
     .then(res=> res.json())
-    .then(function (data){
-        console.log(data)
-        const weatherDescription = data.weather[0].description;
-        document.getElementById('description').innerHTML = weatherDescription;
+    .then((data) => {
 
-        const temp = (data.main.temp)
-        const temp_max = (data.main.temp_max)
-        const temp_min = (data.main.temp_min)
+        const weatherDescription = data.weather[0].description;
+        
+        let description = document.getElementById('description');
+        if (description.innerHTML !== '[object HTMLInputElement]') {
+        document.getElementById('description').innerHTML = weatherDescription;
+        }
+
+        const temp = (data.main.temp);
+        const temp_max = (data.main.temp_max);
+        const temp_min = (data.main.temp_min);
 
         document.getElementById('temp').innerHTML =`Temp: ${Math.trunc(temp)}${`&deg;`}C`;
         document.getElementById('temp-max').innerHTML = `Max Temp: ${Math.trunc(temp_max)}${`&deg;`}C`;
@@ -97,12 +143,70 @@ function weatherBalloon(cityID) {
       .catch((error) => {
           console.error("GET ERROR", error);
           document.getElementById('description').innerHTML = 'Error';
-          document.getElementById('temp').innerHTML ='Please check country name and try again.';
-          document.getElementById('temp-max').innerHTML = '';
+          document.getElementById('temp').innerHTML ='';
+          document.getElementById('temp-max').innerHTML = 'Please check country name and try again.';
           document.getElementById('temp-min').innerHTML = '';
 	      document.getElementById('location').innerHTML = '';
           document.getElementById('openweathercredits').innerHTML = '';
       });
       
           //catch errors
+        }
+
+ //Repoponsive reload on window resize
+    window.addEventListener('resize',triggerWindowRefresh);
+
+    function triggerWindowRefresh() {
+    let windowSize= window.matchMedia("(min-width: 1000px)")
+    if (windowSize.matches){
+        document.querySelector("nav").classList.add("fixed-top");
+        let uImageId= document.querySelectorAll("#unsplashImageId");
+            for(var i =0; i<uImageId.length; i++)
+            {
+                uImageId[i].classList.remove("unsplashImageMob");
+                uImageId[i].classList.add("unsplashImageDesktop");
+            }
+
+        document.onscroll= ()=> {
+            if(document.documentElement.scrollTop > 25){
+            document.querySelector("nav").classList.add("nav-bgscroll");
+            document.querySelector("nav").classList.add("nav-bgscroll-out");
+            }
+            else{
+                document.querySelector("nav").classList.remove("nav-bgscroll");
+            }
+        };
+       }
+       else{
+        document.querySelector("nav").classList.remove("fixed-top");
+        let uImageId= document.querySelectorAll("#unsplashImageId");
+        for(var i =0; i < uImageId.length; i++)
+            {
+                uImageId[i].classList.remove("unsplashImageDesktop");
+                uImageId[i].classList.add("unsplashImageMob");
+            }
+       }
     }
+
+    //Unsplash Images
+    function loadImg(city){
+        const clientId = 'K3yD-g0mDi9czhIQvX4-0kfDW8AJCRGmJXXm4bkhqwE'
+        const url = `https://api.unsplash.com/photos/random?query=${city} landscape&client_id=${clientId}`;
+
+        let imageElement = document.querySelectorAll(".unsplashImage");
+        let imageLink = document.querySelectorAll(".imageRedirect");
+
+        fetch(url)
+            .then(res => res.json())
+            .then((picture) => { 
+              for(img in imageElement){
+                imageElement[img].src = picture.urls.small;
+                imageElement[img].title = `Photo by ${picture.user.name} on Unsplash`;
+                imageLink[img].href= picture.links.html;
+                imageElement[img].onerror ='';
+            }            
+            })
+            .catch((err)=> {
+                console.error("ERROR", err);
+            });
+        }
