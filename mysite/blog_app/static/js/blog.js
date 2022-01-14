@@ -138,8 +138,8 @@ function weatherBalloon(cityID) {
         const temp_min = (data.main.temp_min);
 
         document.getElementById('temp').innerHTML =`Temp: ${Math.trunc(temp)}${`&deg;`}C`;
-        document.getElementById('temp-max').innerHTML = `Max Temp: ${Math.trunc(temp_max)}${`&deg;`}C`;
-        document.getElementById('temp-min').innerHTML = `Min Temp: ${Math.trunc(temp_min)}${`&deg;`}C`;
+        document.getElementById('temp-max').innerHTML = `Max: ${Math.trunc(temp_max)}${`&deg;`}C`;
+        document.getElementById('temp-min').innerHTML = `Min: ${Math.trunc(temp_min)}${`&deg;`}C`;
 	    document.getElementById('location').innerHTML = `${(data.name)} ${(data.sys.country)}`;
         document.getElementById('openweathercredits').innerHTML = 'Data provided by <span> OpenWeather </span>';
 
@@ -148,7 +148,7 @@ function weatherBalloon(cityID) {
           console.error("GET ERROR", error);
           document.getElementById('description').innerHTML = 'Error';
           document.getElementById('temp').innerHTML ='';
-          document.getElementById('temp-max').innerHTML = 'Please check country name and try again.';
+          document.getElementById('temp-max').innerHTML = 'Please check City name and try again.';
           document.getElementById('temp-min').innerHTML = '';
 	      document.getElementById('location').innerHTML = '';
           document.getElementById('openweathercredits').innerHTML = '';

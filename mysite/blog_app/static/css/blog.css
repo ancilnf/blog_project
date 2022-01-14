@@ -15,12 +15,7 @@ body{
   color: var(--color);
 } 
 
-.techfont{
-  font-family: 'Staatliches', cursive;
-  font-size: 1.5em;
-  margin-bottom: 10px;
-  /* z-index: -1; */
-}
+
 
 a img{
   /* background: rgba(61, 212, 47, 0.609); */
@@ -75,10 +70,10 @@ a {
   /* z-index: 1; */
  }
 
-
 .nav-padding{
   padding: 30px;
 }
+
 
 .techfont{
      font-family: 'Staatliches', cursive;
@@ -142,27 +137,13 @@ a {
  font-size: 1.75em;
  text-align: left;
 }
-
-@media (max-width: 999px) {
-.postblock{width: 125%;}
-.btn-comment{position: relative; float: right}
-.weather-api{
-  display: none;
+.aboutImg{
+  width: 300px; 
+  height: 300px; 
+  float: right; 
+  border-radius: 50%; 
+  margin: 50px;
 }
-}
-
-@media (min-width: 1000px){
-.postblock{ width: 100%;}
-.btn-comment{position: relative; float:right; margin-right: 10px;}
-.content{
-  padding-top: 150px;
-}
-}
-/* left: 800px; */
-.removeapprove{
-  text-align: left;
-}
-
 
 /* COLOR CHANGER BELOW */
 /* .loader {
@@ -213,6 +194,9 @@ a {
     font-size: 0.65em;
     text-align: center;
     margin-bottom: 10px;
+    align-items: center;
+    text-decoration: none;
+    word-wrap:break-word;
   }
   #openweathercredits span{
     color: rgb(228, 117, 38);
@@ -269,10 +253,75 @@ opacity:0.85;
 .unsplashImageMob{
  opacity:0.85; 
   height:155px; 
-  width:318px;
+  width: 155px;;
   position:relative; 
   top:-15px; 
-  left:-10px; 
+  left:-15px; 
   border-radius: 10px; 
   margin-right:15px;
 }
+
+@media (max-width: 999px) {
+  .postblock{width: 100%;}
+  .btn-comment{position: relative; float: right}
+  .weather-api{
+    /* display: none; */
+      padding-left: 5px;
+      padding-right: 5px;
+      width:115%;
+      overflow: scroll;
+  }
+  .postcomment{
+    font-size: 0.75em;
+   }
+   .techfont{
+    font-size: 1em;
+  }
+  #bigbrand{
+     font-size: 1.5em;
+   }
+   .postdate{
+    font-size: 0.5em;
+   }
+   .posttitle{
+    font-size: 1.25em;
+   }
+  
+   .postcontent{
+    font-size: 0.75em;
+   }
+   .aboutImg{
+    width: 200px; 
+    height: 200px; 
+    float: right; 
+    border-radius: 50%; 
+    margin: 50px;
+  }
+  .p-2{
+    padding: 5px !important;
+  }
+  .description{
+    font-size: 1.2em;
+  }
+  #temp,#temp-max,#temp-min,#location,#country{
+    font-size: 0.85em;
+  }
+  #openweathercredits{
+    font-size: 0.5em;
+  }
+  .city{
+    padding-left: 2px;
+    font-size: 0.75em;
+  }
+  }
+  
+  @media (min-width: 1000px){
+  .postblock{ width: 100%;}
+  .btn-comment{position: relative; float:right; margin-right: 10px;}
+  .content{
+    padding-top: 150px;
+  }
+  }
+  .removeapprove{
+    text-align: left;
+  }
