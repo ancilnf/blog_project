@@ -2,6 +2,10 @@
 
 {% block content %}
 
+<div class="backIcon">
+   <a href="{% url 'post_list' %}"><i class="bi bi-arrow-left-circle-fill"></i></a> 
+</div>
+
  <div class= "postblock">
     <h1 class='posttitle'>{{ post.title }}</h1>
         {% if post.published_date %}
@@ -14,9 +18,17 @@
         {% endif %}
             <div class="postcontent">
             <p>{{ post.text|safe|linebreaksbr }}</p>
+
+
+            {% if post.author|safe != "superuser" %}
+            <div class="postauthor">
+              Posted by: @{{ post.author|lower|safe|linebreaksbr }}
+            </div>
+            {% endif %}
             </div>
 
-            {% if user.is_authenticated %}
+
+            {% if request.user|safe == post.author|safe or request.user.is_superuser  %}
                 <a class="btn btn-primary" title="Edit" href="{% url 'post_edit' pk=post.pk %}"><i class="bi bi-pen-fill"></i></a>
                 <a class="btn btn-primary" title="Delete" href="{% url 'post_remove' pk=post.pk %}"><i class="bi bi-trash-fill"></i></a>
             {% endif %}
@@ -27,7 +39,7 @@
   {% for comment in post.comments.all %}
   <br>
       {% if user.is_authenticated or comment.approved_comment %}
-         <div class="date postdate">{{ comment.created_date }}</div>
+         <div class="date postdate">{{ comment.created_date|timesince }} ago</div>
          <div class="removeapprove">
             <div class="postcomment">{{ comment.text|safe|linebreaksbr }}</div>
               {% if not comment.approved_comment %}

@@ -29,6 +29,7 @@ a img{
 
 a {
   color:var(--color);
+  text-decoration: none;
 }
 .cl-mode-icon{
   color:var(--color);
@@ -48,6 +49,41 @@ a {
   padding-bottom: 20px;
   margin-bottom: 10px;
 }
+
+.login-signup-container{
+  background-color: var(--form-bg-mode);
+  box-shadow: var(--box-shadow);
+  color:var(--color);
+  border-radius: 5px;
+  padding: 10px 10px 20px 10px;
+  margin-bottom: 10px;
+  margin-right: 350px;
+  margin-left: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-login{
+  display: flex;
+  justify-content: center;
+}
+
+.button{
+  border:1px grey;
+  font-family: 'Staatliches', cursive;
+  font-size: x-large;
+    width:100%;
+    height: 45px;
+    background-color: rgb(34, 158, 55);
+    color:white;
+    border-radius: 25px;
+}
+.button:active{
+transform: translateY(2px);
+}
+
 
 .postblock{
   background-color: var(--form-bg-mode);
@@ -73,7 +109,6 @@ a {
 .nav-padding{
   padding: 30px;
 }
-
 
 .techfont{
      font-family: 'Staatliches', cursive;
@@ -137,6 +172,40 @@ a {
  font-size: 1.75em;
  text-align: left;
 }
+
+.login-signup{
+  font-family: 'Staatliches', cursive;
+  font-size: 1.5em;
+  text-align: left;
+}
+.postauthor{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.75em;
+  text-align: left;
+  text-decoration: none;
+  padding-bottom: 10px;
+  color: rgb(143, 142, 142);
+ }
+
+.backIcon{
+  position: absolute;
+  transform: scale(2.5);
+  transition: 0.5s;
+  top: 175px;
+  left: 50px
+}
+.backIcon:hover{
+  transform: scale(3);
+  text-decoration: none;
+  transition: 0.5s;
+}
+.backIcon i:hover{
+  transform: scale(3.5);
+  text-decoration: none;
+  transition: 0.5s;
+  color:var(--mode-icon-color);
+}
+
 .aboutImg{
   width: 300px; 
   height: 300px; 
@@ -172,7 +241,7 @@ a {
     opacity: 0;
   }
 
-.switch__label{
+  .switch__label{
     color: var(--mode-icon-color);
     transition: 0.5s;
   }
@@ -180,8 +249,6 @@ a {
     transition: 0.5s;
     transform: scale(2);
   }
-
-
   .weather-api{
     border-radius: 10px;
     background-color: var(--form-bg-mode);
@@ -216,6 +283,18 @@ a {
     padding-bottom: 5px;
     max-width: 100%;
   }
+  .searchPost{
+    margin-left: 30px;
+    font-size: 0.9em;
+    height:50px;
+    max-width: 500px;
+    text-align: left;
+  }
+  .searchPostButton{
+    font-size: 0.9em;
+    height:50px;
+    max-width: 500px;
+  }
 
   .weatherfont{
      font-family: 'Staatliches', cursive;
@@ -231,8 +310,8 @@ a {
    margin: 0;
    top: 0;
    height: 100px;
-   border-radius: 0px 0px 20px 20px;
-   box-shadow: 1px 1px 1px 1px rgba(117, 117, 117, 0.9);
+   border-radius: 0px 0px 10px 10px;
+   box-shadow: 0 0.4px 0 0 rgba(116, 115, 115, 0.9);
  } 
  .nav-bgscroll-out{
   transition: 0.8s ease-out;
@@ -261,9 +340,31 @@ opacity:0.85;
   margin-right:15px;
 }
 
+#postMoveSVG{
+   animation: svgpost 5s ease-in-out infinite;
+}
+
+@keyframes svgpost {
+  0% {
+    transform: translate(15px)
+  }
+  50%{
+    transform: translate(-150px)
+  }
+  100%{
+    transform: translate(15px)
+  }
+}
+
 @media (max-width: 999px) {
   .postblock{width: 100%;}
   .btn-comment{position: relative; float: right}
+  .login-signup-container{
+    width: 300px;
+    margin-right: 0px;
+    margin-left: 0;
+  }
+
   .weather-api{
     /* display: none; */
       padding-left: 5px;
@@ -278,7 +379,7 @@ opacity:0.85;
     font-size: 1em;
   }
   #bigbrand{
-     font-size: 1.5em;
+     font-size: 1.65em;
    }
    .postdate{
     font-size: 0.5em;
@@ -286,10 +387,12 @@ opacity:0.85;
    .posttitle{
     font-size: 1.25em;
    }
-  
    .postcontent{
     font-size: 0.75em;
    }
+   .backIcon{
+    display:none;
+    }
    .aboutImg{
     width: 200px; 
     height: 200px; 
@@ -313,6 +416,15 @@ opacity:0.85;
     padding-left: 2px;
     font-size: 0.75em;
   }
+  .searchPost{
+    margin:0;
+    font-size: 0.91em;
+    max-width: 100px;
+  }
+  svg{
+    height: 100px;
+    width: 100px
+ }
   }
   
   @media (min-width: 1000px){

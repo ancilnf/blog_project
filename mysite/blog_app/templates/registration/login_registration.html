@@ -1,0 +1,41 @@
+{% extends 'blog_app/base.html' %}
+
+
+{% block content %}
+
+<div class="jumbotron">
+  <div class="login-signup-container">
+    {% if registered %}
+    <h2 style="color:blue">Thank you for Registering. You are now Logged In!</h2>
+    {% else %}
+  
+    <h2>Sign Up!</h2>
+    <hr>
+    {% if user_form.errors %}
+    <div style="color: red">{{ user_form.errors }}</div>
+    <br>
+    {% endif %}
+   <form method="POST">
+     {% csrf_token %}
+     <div class="form-group">
+      <h5>Username {{ user_form.username }}</h5>
+        <br>
+        <h5>Password {{ user_form.password1 }}</h5>
+      <br>
+      <h5>Confirm Password {{ user_form.password2 }}</h5>
+      <br>
+    </div>
+    <div class="button-login">
+     <input type="submit" class='button' value="Register">
+    </div>
+   </form>
+  {% endif %}
+  <hr>
+
+  <h5>Already Signed Up?</h5>
+  <div class="login-signup">
+  <a href="{% url 'login' %}">Log In</a>
+</div>
+</div>
+</div>
+{% endblock %}

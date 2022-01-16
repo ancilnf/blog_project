@@ -3,23 +3,35 @@
 
 {% block content %}
   <div class="jumbotron">
-    <div class="light-container">
-    <h2>Please Login: </h2>
+    <div class="login-signup-container">
+    <h2>Login </h2>
     <hr>
     {% if form.errors %}
-        <p>Your username and password didn't match.Please try again!</p>
+    <div style="color: red">Username and password didn't match. Please try again!</div>
+    <br>
     {% endif %}
-
+<div>
     <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
       <div class="form-group">
-       <h5>Username {{ form.username }}</h5>
+        <h5>Username {{ form.username }}</h5>
+        <div style="padding-left: 5px;color:rgb(34, 158, 55);">*Enter username in lower case</div>
         <br>
         <h5>Password {{ form.password }}</h5>
+        <br>
       </div>
+      <div class="button-login">
+        <input type="submit" class='button' value="Login" />
       </div>
-        <input type="submit" class='btn btn-primary' value="Login" />
         <input type="hidden" name="next" value="{{ next }}" />
     </form>
+  </div>
+    <hr>
+
+  <h5>Haven't Signed Up Yet?</h5>
+  <div class="login-signup">
+    <a href="{% url 'signup' %}">Sign Up</a>
+  </div>
+</div>
   </div>
 {% endblock %}

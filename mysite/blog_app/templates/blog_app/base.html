@@ -27,6 +27,16 @@
     <nav class="navbar navbar-expand-lg techfont">
         <div class="container-fluid" id="navbarContent">
             <a class="navbar-brand nav-padding link-text-brand" id="bigbrand" href="{% url 'post_list' %}">My Blog</a>
+            
+            <form action="" method="get">
+              <div class="input-group">
+                <input class='form-control form-control-md searchPost' type="text" placeholder="Search Post.." name='q' >
+                <div class="input-group-append input-group-md" >
+                  <button class="btn btn-outline-secondary searchPostButton" type= 'submit'><i class="bi bi-search"></i></button>
+                </div>
+              </div>
+          </form>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,9 +49,9 @@
                 <li class="nav-item"><a class="nav-link link-text" aria-current="page" href="https://www.linkedin.com/in/ancil-fernandes/" target="_blank" rel="noreferrer noopener">LinkedIn</a></li>
 
               {% if user.is_authenticated %}
-               <li class="nav-item"><a class="nav-link link-text " aria-current="page" style="text-align: end; color: rgb(8, 128, 14);" href="{% url 'post_new' %}">New Post</a></li>
+               <li class="nav-item"><a class="nav-link link-text " aria-current="page" style="text-align: end; color: rgb(8, 128, 14)" href="{% url 'post_new' %}">New Post</a></li>
                <li class="nav-item"><a class="nav-link link-text" aria-current="page" href="{% url 'post_draft_list' %}">Drafts</a></li>
-               <li class="nav-item"><a class="nav-link bigbrand" style="color: rgb(93, 79, 180);">Welcome: {{ user.username }}</a></li>
+               <li class="nav-item"><a class="nav-link bigbrand" style="transform: scale(1.1);color:rgb(68, 110, 144)">Hello: {{ user.username }}</a></li>
                <li class="nav-item"><a class="nav-link link-primary link-text-log" title="Log Out" aria-current="page" href="{% url 'logout' %}"><i class="bi bi-person-x-fill"></i></a></li>
               {% else %}
                <li class="nav-item"><a class="nav-link link-primary link-text-log" title="Log In" aria-current="page" href="{% url 'login' %}"><i class="bi bi-person-circle"></i></a></li>
