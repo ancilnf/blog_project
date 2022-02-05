@@ -497,7 +497,10 @@ opacity:0.85;
     height: 200px; 
     float: right; 
     border-radius: 50%; 
-    margin: 50px;
+    margin: 20px;
+  }
+  .about_skills{
+    font-size: 0.75em;
   }
   .p-2{
     padding: 5px !important;
@@ -520,8 +523,19 @@ opacity:0.85;
     font-size: 0.91em;
     max-width: 100px;
   }
+  .footer-col{
+    width:75%;
+    padding:0;
+  }
+  .footer-row{
+    display: grid;
+    grid-template-columns: 2fr;
+  }
   .footer-col ul li a{
     font-size: 1em;
+  }
+  .col2{
+    font-size: 0.75em;
   }
   svg{
     height: 100px;
