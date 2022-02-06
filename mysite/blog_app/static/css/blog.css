@@ -610,10 +610,13 @@ transform: translateY(2px);
     }
    .aboutImg{
     width: 200px; 
-    height: 200px; 
-    float: right; 
+    height: 200px;
     border-radius: 50%; 
     margin: 20px;
+  }
+  .aboutImage{
+    display: flex;
+    flex-direction: column;
   }
   .about_skills{
     font-size: 0.75em;

@@ -1,14 +1,15 @@
 {% extends 'blog_app/base.html' %}
 
 {% block content %}
+<div class="centerstage">
 <div class="postblock">
 <h1>About Me</h1>
 <hr>
     <div>
-        <div>
+        <div class="aboutImage">
             <img src="/static/pictures/ProfilePic1.jpg" alt="Ancil Fernandes" title="Ancil N Fernandes" class='aboutImg'>
             <br>
-        </div>
+       
         <div>
             <h2>UI/UAT Module Lead</h2>
                 <br>
@@ -25,13 +26,16 @@
                     <li>Git/ GitHub</li>
                     <li>React.js, Node.js</li>
                 </ul>
-              
-                <br>
+               <a class="btn btn-outline-success" href="#" rel="noopener noreferrer">Download RESUME</a>
+                
+              <hr>
                 <h3>Thanks for Visiting!</h3>
             </div>
-            </div>      
+            </div>  
+        </div>    
     </div>
 
 </div>
+
 {% endblock %}
 
