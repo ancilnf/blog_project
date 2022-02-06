@@ -1,30 +1,17 @@
 {% extends 'blog_app/base.html' %}
 
-{% block content %}
-<div class="centerstage">
-    {% for post in post_list %}
-    <div class="post postblock">
-        <div class="">
-            <a class="imageRedirect" target="_blank" rel="noreferrer noopener"><img src="/static/pictures/PostPlaceholder.jpg" title="" alt="Loading pictures from unsplash.com..." id="unsplashImageId" class="unsplashImage" alt=""></a>
-        </div>
-        <h1 class='posttitle'><a href="{% url 'post_detail' pk=post.pk %}"> {{ post.title }}</a></h1>
-        <div class="date">
-            <p>Published on: {{ post.published_date|date:'d-m-Y' }}</p>
-        </div>
-        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
-    </div>
-    {% empty %}
-    <p class="postblock postcontent">No Posts.</p>
-    {% endfor %}
-</div>
-{% endblock %}
 
 {% block weather %}
-<div class="weather-api">
+
+<div class="mainImage">
+    <img src="/static/pictures/PostPlaceholder2.jpg" title="" alt="Loading..." id="unsplashImageId2" class="unsplashImageMain" alt="">
+    <p class="imageRedirectMain">Photo by <em><a class="imageRedirect" target="_blank" href="https://unsplash.com/photos/5J1bHRX1fNw" rel="noreferrer noopener">Ray Mallick</a></em> on <em><a href="https://unsplash.com/" target="_blank" rel="noreferrer noopener">Unsplash!</a></em></p>
+    <p class="inspirationalQuote"> ** insert inspirational quote here **</p>
+
+    <div class="weather-api">
      <div class='form-group'></div>
      <h1 class='weatherfont mt-2'>Weather</h1>
-     <input class='form-control city' id='city' type="text" placeholder="City name..">
-
+     <input class='form-control city' id='city' type="text" placeholder="Enter city name..">
 
     <div class="">
         <div class='description' id="description"></div>
@@ -37,9 +24,12 @@
         <div><a id="openweathercredits" href="https://openweathermap.org/" target="_blank" rel="noreferrer noopener"></a></div>
     </div>
 </div>
+</div>
+
 <br>
+<div class="posts_svg">
 <div>
-    <svg width="400" height="304" viewBox="0 0 844 641" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="200" height="150" viewBox="0 0 844 641" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="undraw_post_re_mtr4 1" clip-path="url(#clip0_3_113)">
         <path id="Vector" d="M424.443 0H48.125C35.3658 0.0143667 23.1334 5.0893 14.1113 14.1114C5.08923 23.1335 0.0143349 35.366 0 48.1251V490.001C0.0143376 502.76 5.08925 514.993 14.1113 524.015C23.1334 533.037 35.3659 538.112 48.125 538.126H424.443C437.203 538.112 449.435 533.037 458.457 524.015C467.479 514.993 472.554 502.76 472.568 490.001V48.1251C472.554 35.366 467.479 23.1335 458.457 14.1114C449.435 5.0893 437.203 0.0143667 424.443 0Z" fill="#F2F2F2"/>
         <path id="Vector_2" d="M424.444 13.8542H48.125C39.0389 13.8644 30.3279 17.4783 23.903 23.9032C17.4782 30.328 13.8642 39.039 13.854 48.1251V490.001C13.8642 499.087 17.4782 507.798 23.903 514.223C30.3279 520.648 39.0389 524.262 48.125 524.272H424.444C433.53 524.262 442.241 520.647 448.666 514.223C455.09 507.798 458.704 499.087 458.714 490.001V48.1251C458.704 39.0391 455.09 30.3281 448.666 23.9033C442.241 17.4785 433.53 13.8645 424.444 13.8542Z" fill="white"/>
@@ -86,7 +76,42 @@
         </defs>
         </svg>
     </div>
+    
+    <div>
+        <h2>Posts</h2>
+    </div>
+</div>
     {% endblock %}
+
+    {% block content %}
+<div class="centerform">
+
+    <div class="p-4">
+        <form action="" method="get">
+        <div class="input-group">
+          <input class='form-control form-control-md searchPost' type="text" placeholder="Search Post.." name='q' >
+          <div class="input-group-append input-group-md" >
+            <button class="btn btn-outline-secondary searchPostButton" type= 'submit'><i class="bi bi-search"></i></button>
+          </div>
+        </div>
+    </form>
+  </div>
+    {% for post in post_list %}
+    <div class="post postblock">
+        <!-- <div class="">
+            <a class="imageRedirect" target="_blank" rel="noreferrer noopener"><img src="/static/pictures/PostPlaceholder.jpg" title="" alt="Loading pictures from unsplash.com..." id="unsplashImageId" class="unsplashImage" alt=""></a>
+        </div> -->
+        <h1 class='posttitle'><a href="{% url 'post_detail' pk=post.pk %}"> {{ post.title }}</a></h1>
+        <div class="date">
+            <p>Published on: {{ post.published_date|date:'d-m-Y' }}</p>
+        </div>
+        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
+    </div>
+    {% empty %}
+    <p class="postblock postcontent">No Posts.</p>
+    {% endfor %}
+</div>
+{% endblock %}
 
     {% block footer %}
     <footer class="footer" id= 'footer'>
@@ -235,7 +260,7 @@
     <div class="footer-col">
           <div class= "col2" ><a href="#"><i class="bi bi-person-lines-fill"></i> CONTACT</a></div> 
           <hr>
-          <div style="color: rgb(255, 255, 255);">&copy;<strong>Ancil Fernandes</strong></div>
+          <div>&copy;<strong>Ancil Fernandes</strong></div>
     </div>
 
 

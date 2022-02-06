@@ -5,6 +5,7 @@
   --color: rgb(255, 255, 255);
   --mode-icon-color: rgb(251, 255, 0);
   --box-shadow: 0 10px 6px -8px rgb(0, 0, 0);
+  --weather-bg: hsla(0, 0%, 15%, 0.75)
 }
 html{
   scroll-behavior:smooth;
@@ -16,8 +17,6 @@ body{
   height: 100%;
   color: var(--color);
 } 
-
-
 
 a img{
   /* background: rgba(61, 212, 47, 0.609); */
@@ -46,6 +45,7 @@ a {
   box-shadow: var(--box-shadow);
   color:var(--color);
   border-radius: 5px;
+  margin-top: 150px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 20px;
@@ -58,9 +58,10 @@ a {
   color:var(--color);
   border-radius: 5px;
   padding: 10px 10px 20px 10px;
-  margin-bottom: 10px;
+  margin: 150px 250px 0 250px;
+  /* margin-bottom: 10px;
   margin-right: 350px;
-  margin-left: 100px;
+  margin-left: 100px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -119,19 +120,30 @@ transform: translateY(2px);
  }
 
 .link-text-log{
-   color:rgb(34, 168, 57); 
-   background: 10px 10px;
+   margin-top: 20px;
+   color:rgb(34, 168, 57);
    background-color: red;
    transition: 0.5s;
+   padding-top: 10px;
    transform: scale(1.2);
    margin-left: 20px;
 }
 .link-text{
+  padding-top: 25px;
+  padding-left: 30px;
+  font-size: 1.25em;
   color: var(--color);
   transition: 0.5s;
 }
-.link-text-brand{
+/* .link-text-brand{
   transition: 0.5s;
+} */
+.link-text-user{
+  padding-top: 25px;
+  padding-left: 50px;
+  font-size: 1.25em;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
 }
 
  .link-text:hover{
@@ -155,8 +167,21 @@ transform: translateY(2px);
    font-size: 2.5em;
  }
 .centerstage{
+  padding-top: 150px;
    margin-right: auto;
    margin-left: auto;
+}
+.centerform{
+   margin-right: auto;
+   margin-left: auto;
+   font-size: large;
+   justify-content: center;
+}
+
+.centerform h2{
+  font-family: 'Staatliches', cursive;
+  font-size: 2.5em;
+  padding: 15px;
 }
 
 .postdate{
@@ -247,18 +272,26 @@ transform: translateY(2px);
   }
 
   .switch__label{
-    color: var(--mode-icon-color);
-    transition: 0.5s;
+    /* color: var(--mode-icon-color); */
+    transition: 0.3s;
   }
   .switch__label:hover{
-    transition: 0.5s;
+    transition: 0.3s;
     transform: scale(1.5);
   }
+
   .weather-api{
+    position: absolute;
+    color: white;
     border-radius: 10px;
-    background-color: var(--form-bg-mode);
+    background-color: var(--weather-bg);
+    right: 75px;
+    top: 200px;
     padding: 15px;
     box-shadow: 1px 1px 1px 2px rgba(214, 121, 0, 0.404);
+  }
+  .weather-api a{
+    color: white;
   }
 
   #openweathercredits{
@@ -275,7 +308,7 @@ transform: translateY(2px);
   }
   
   .description{
-    color: slateblue;
+    color: rgb(122, 172, 238);
     padding: 2px;
     text-align: left;
     font-size: 2em;
@@ -289,10 +322,9 @@ transform: translateY(2px);
     max-width: 100%;
   }
   .searchPost{
-    margin-left: 30px;
     font-size: 0.9em;
     height:50px;
-    max-width: 500px;
+    max-width: 250px;
     text-align: left;
   }
   .searchPostButton{
@@ -323,7 +355,7 @@ transform: translateY(2px);
 } 
  
 .unsplashImageDesktop{
-opacity:0.85; 
+  opacity:0.85; 
   height:155px; 
   width:200px; 
   float: left;  
@@ -335,7 +367,7 @@ opacity:0.85;
 }
 
 .unsplashImageMob{
- opacity:0.85; 
+  opacity:0.85; 
   height:155px; 
   width: 155px;;
   position:relative; 
@@ -346,10 +378,10 @@ opacity:0.85;
 }
 
 
-
 #footer{
-  background: linear-gradient(to right, #0f2a1c, #2e5a3c, #224e3c);
+  /* background: linear-gradient(to right, #0f2a1c, #2e5a3c, #224e3c); */
   /* background: #3a7047; */
+  background: var(--form-bg-mode);
   bottom: 0;
   left: 0;
   right:0;
@@ -371,9 +403,9 @@ opacity:0.85;
   list-style: none;
 }
 
-.col2 a, .footer-col hr{
+/* .col2 a, .footer-col hr{
   color: white;
-}
+} */
 
 .col2 a:hover{
   color: rgb(191, 194, 22);
@@ -384,7 +416,7 @@ opacity:0.85;
 }
 
 .footer-col ul li a, .footer-col ul hr{
-  color: white;
+  /* color: white; */
   font-family: 'Staatliches', cursive;
   font-size: 1.5em;
   transition: all 0.5s ease;
@@ -455,6 +487,66 @@ opacity:0.85;
   }
 }
 
+.mainImage{
+  padding-top: 150px;
+  position: relative;
+}
+.unsplashImageMain{
+  object-fit: cover;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color: var(--comment-bg-mode);
+  height: 450px;
+  width:100%;
+}
+.inspirationalQuote{
+  padding: 5px;
+  font-size: 1em;
+  position: absolute;
+  border-radius: 10px 10px 10px 10px;
+  color:white;
+  background-color: hsla(0, 0%, 8%, 0.75);
+  left: 5px;
+  top: 160px;
+}
+.imageRedirectMain{
+  padding: 5px;
+  position: absolute;
+  border-radius: 10px 10px 10px 10px;
+  color:white;
+  background-color: hsla(0, 0%, 8%, 0.75);
+  left: 5px;
+  bottom:0;
+}
+.imageRedirectMain a{
+  color:white;
+  text-decoration: underline;
+}
+.imageRedirectMain a:hover{
+  color:rgb(255, 251, 0);
+}
+
+.link-logo{
+  padding-top: 5px;
+  padding-left: 100px;
+  height: 80px;
+  transform: scale(1.25);
+}
+
+.posts_svg{
+  display: flex;
+  padding-right:250px;
+  place-content: end;
+}
+
+.posts_svg h2{
+  font-size: 5em;
+  font-family: 'Staatliches', cursive;
+  padding: 20px 0 0 100px; 
+}
+
 @media (max-width: 999px) {
   .postblock{width: 100%;}
   .btn-comment{position: relative; float: right}
@@ -463,13 +555,41 @@ opacity:0.85;
     margin-right: 0px;
     margin-left: 0;
   }
-
+  .content{
+    padding-top: 0px;
+  }
+  .mainImage{
+    padding-top: 0;
+    position: relative;
+  }
+  .inspirationalQuote{
+    padding: 5px;
+    font-size: 0.75em;
+    left: 5px;
+    top: 5px;
+  }
   .weather-api{
-    /* display: none; */
-      padding-left: 5px;
-      padding-right: 5px;
-      width:115%;
+      top: 75px;
+      right: 10px;
+      padding: 0 5px 0 5px;
       overflow: scroll;
+  }
+  .imageRedirectMain{
+    padding: 5px;
+    font-size: 0.85em;
+    left: 5px;
+    bottom:0;
+  }
+  .centerstage{
+    padding-top: 0;
+     margin-right: auto;
+     margin-left: auto;
+  }
+  .centerform{
+     margin-right: auto;
+     margin-left: auto;
+     font-size: large;
+     justify-content: center;
   }
   .postcomment{
     font-size: 0.75em;
@@ -512,7 +632,15 @@ opacity:0.85;
     font-size: 0.85em;
   }
   #openweathercredits{
-    font-size: 0.5em;
+    font-size: 0.6em;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .light-container{
+    margin-top: 0px;
+  }
+  hr{
+    margin:0.5rem 0 0.25rem 0;
   }
   .city{
     padding-left: 2px;
@@ -520,7 +648,7 @@ opacity:0.85;
   }
   .searchPost{
     margin:0;
-    font-size: 0.91em;
+    font-size: 0.75em;
     max-width: 100px;
   }
   .footer-col{
@@ -541,14 +669,29 @@ opacity:0.85;
     height: 100px;
     width: 100px
  }
+ .posts_svg{
+  flex-wrap: wrap;
+  padding-right:0;
+  place-content: end;
+}
+.posts_svg h2{
+  padding-right: 20px;
+  font-size: 2.5em; 
+}
+.link-logo {
+  padding-top: 5px;
+  padding-left: 20px;
+  height: 40px;
+  transform: scale(1.25);
+}
   }
   
   @media (min-width: 1000px){
   .postblock{ width: 100%;}
   .btn-comment{position: relative; float:right; margin-right: 10px;}
-  .content{
-    padding-top: 150px;
-  }
+  /* .content{
+    padding-top: 20px;
+  } */
   }
   .removeapprove{
     text-align: left;

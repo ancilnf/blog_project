@@ -15,9 +15,9 @@ window.addEventListener('load', ()=> {
         variables1.style.setProperty('--mode-icon-color', 'rgb(0, 26, 255)');
         variables1.style.setProperty('--box-shadow', '0 10px 6px -8px #777');
 
-        const darkMode = document.querySelector('.switch__label');
-            darkMode.classList.remove("bi-brightness-high");
-            darkMode.classList.add("bi-moon-stars");
+        // const darkMode = document.querySelector('.switch__label');
+        //     darkMode.classList.remove("bi-brightness-high");
+        //     darkMode.classList.add("bi-moon-stars");
 
         const navIcon= document.querySelector(".techfont");
             navIcon.classList.remove("navbar-dark");
@@ -34,9 +34,9 @@ window.addEventListener('load', ()=> {
             variables2.style.setProperty('--mode-icon-color', 'rgb(238, 255, 0)');
             variables2.style.setProperty('--box-shadow', '0 10px 6px -8px rgb(0, 0, 0)');
 
-        const lightMode = document.querySelector('.switch__label');
-            lightMode.classList.remove("bi-moon-stars");
-            lightMode.classList.add("bi-brightness-high");
+        // const lightMode = document.querySelector('.switch__label');
+        //     lightMode.classList.remove("bi-moon-stars");
+        //     lightMode.classList.add("bi-brightness-high");
             
         const navIcon= document.querySelector(".techfont");
             navIcon.classList.remove("navbar-light");
@@ -55,9 +55,9 @@ window.addEventListener('load', ()=> {
             variables.style.setProperty('--mode-icon-color', 'rgb(238, 255, 0)')
             variables.style.setProperty('--box-shadow', '0 10px 6px -8px rgb(0, 0, 0)');
 
-        const lightMode = document.querySelector('.switch__label');
-            lightMode.classList.remove("bi-moon-stars");
-            lightMode.classList.add("bi-brightness-high");
+        // const lightMode = document.querySelector('.switch__label');
+        //     lightMode.classList.remove("bi-moon-stars");
+        //     lightMode.classList.add("bi-brightness-high");
 
         const navIcon= document.querySelector(".techfont");
             navIcon.classList.remove("navbar-light");
@@ -73,9 +73,9 @@ window.addEventListener('load', ()=> {
             variables.style.setProperty('--mode-icon-color', 'rgb(0, 26, 255)')
             variables.style.setProperty('--box-shadow', '0 10px 6px -8px #777');
 
-        const darkMode = document.querySelector('.switch__label');
-            darkMode.classList.remove("bi-brightness-high");
-            darkMode.classList.add("bi-moon-stars");
+        // const darkMode = document.querySelector('.switch__label');
+        //     darkMode.classList.remove("bi-brightness-high");
+        //     darkMode.classList.add("bi-moon-stars");
 
         const navIcon= document.querySelector(".techfont");
             navIcon.classList.remove("navbar-dark");
@@ -198,17 +198,22 @@ function weatherBalloon(cityID) {
         const url = `https://api.unsplash.com/photos/random?query=${city} landscape&client_id=${clientId}`;
 
         let imageElement = document.querySelectorAll(".unsplashImage");
+        let imageElementMain = document.querySelectorAll(".unsplashImageMain");
         let imageLink = document.querySelectorAll(".imageRedirect");
 
         fetch(url)
             .then(res => res.json())
             .then((picture) => { 
-              for(img in imageElement){
-                imageElement[img].src = picture.urls.small;
-                imageElement[img].title = `Photo by ${picture.user.name} on Unsplash`;
-                imageLink[img].href= picture.links.html;
-                imageElement[img].onerror ='';
-            }            
+                imageElementMain[0].src = picture.urls.regular;
+                imageLink[0].innerHTML =picture.user.name;
+                imageLink[0].href= picture.links.html;
+                imageElementMain[0].onerror ='';
+            //   for(img in imageElement){
+            //     imageElement[img].src = picture.urls.small;
+            //     imageElement[img].title = `Photo by ${picture.user.name} on Unsplash`;
+            //     imageLink[img].href= picture.links.html;
+            //     imageElement[img].onerror ='';
+            // }            
             })
             .catch((err)=> {
                 console.error("ERROR", err);
