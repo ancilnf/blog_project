@@ -110,6 +110,8 @@ def add_comment_to_post(request,pk):
 
         if form.is_valid():
             comment = form.save(commit=False)
+            comment.author = request.user.username
+            print(comment.author)
             comment.post = post
             comment.save()
             return redirect('post_detail', pk= post.pk)

@@ -117,25 +117,23 @@ transform: translateY(2px);
  }
 
 .link-text-log{
-   margin-top: 20px;
-   color:rgb(34, 168, 57);
-   background-color: red;
+   margin-top: 25px;
    transition: 0.5s;
    padding-top: 10px;
-   transform: scale(1.2);
-   margin-left: 20px;
+   margin-left: 5px;
 }
 .link-text{
+  margin: 5px;
   padding-top: 25px;
   padding-left: 30px;
   font-size: 1.25em;
-  color: var(--color);
   transition: 0.5s;
 }
 /* .link-text-brand{
   transition: 0.5s;
 } */
 .link-text-user{
+  margin: 5px;
   padding-top: 25px;
   padding-left: 50px;
   font-size: 1.25em;
@@ -144,6 +142,7 @@ transform: translateY(2px);
 }
 
  .link-text:hover{
+   color:rgb(0, 0, 0);
    transition: 0.5s;
    transform: scale(1.1);
    text-decoration: overline 3px #e91e63;
@@ -155,7 +154,7 @@ transform: translateY(2px);
 .link-text-log:hover{
   /* color: rgb(0, 0, 2); */
   transition: 0.5s;
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 
 #bigbrand{
@@ -203,6 +202,9 @@ transform: translateY(2px);
   font-family: 'Staatliches', cursive;
   font-size: 1.5em;
   text-align: left;
+}
+.login-signup a{
+  text-decoration: underline;
 }
 .postauthor{
   font-family: 'Open Sans', sans-serif;
@@ -255,6 +257,7 @@ transform: translateY(2px);
  .switch {
     width: 100px;
     text-align: center;
+    margin-top: 20px;
     margin-right: 20px;
  }
 
@@ -269,7 +272,6 @@ transform: translateY(2px);
   }
 
   .switch__label{
-    /* color: var(--mode-icon-color); */
     transition: 0.3s;
   }
   .switch__label:hover{
@@ -400,10 +402,6 @@ transform: translateY(2px);
   list-style: none;
 }
 
-/* .col2 a, .footer-col hr{
-  color: white;
-} */
-
 .col2 a:hover{
   color: rgb(191, 194, 22);
 }
@@ -413,7 +411,6 @@ transform: translateY(2px);
 }
 
 .footer-col ul li a, .footer-col ul hr{
-  /* color: white; */
   font-family: 'Staatliches', cursive;
   font-size: 1.5em;
   transition: all 0.5s ease;
@@ -526,7 +523,7 @@ transform: translateY(2px);
 }
 
 .link-logo{
-  padding-top: 5px;
+  padding-top: 10px;
   padding-left: 100px;
   height: 80px;
   transform: scale(1.25);
@@ -548,8 +545,9 @@ transform: translateY(2px);
   .postblock{width: 100%;}
   .btn-comment{position: relative; float: right}
   .login-signup-container{
-    width: 300px;
+    width: 325px;
     margin: 0;
+    padding: 15px;
   }
   .content{
     padding-top: 0px;
@@ -640,6 +638,7 @@ transform: translateY(2px);
   }
   hr{
     margin:0.5rem 0 0.25rem 0;
+    size: 10px;
   }
   .city{
     padding-left: 2px;
@@ -679,9 +678,39 @@ transform: translateY(2px);
 }
 .link-logo {
   padding-top: 5px;
-  padding-left: 20px;
+  padding-left: 10px;
+  padding-right: 10px;;
+  margin-bottom: 12px;
   height: 40px;
   transform: scale(1.25);
+}
+.link-text{
+  margin: 5px 0 0 0;
+  padding-top: 10px;
+  padding-left: 0;
+  font-size: 1em;
+}
+.link-text-log{
+  margin-top: 5px;
+  margin-left:0;
+}
+.link-text-user{
+  margin: 0;
+  padding-top: 10px;
+  padding-left: 2.5px;
+  padding-right: 2.5px;
+  font-size: 1em;
+  text-align: end;
+}
+.switch {
+  width: 0;
+  text-align: center;
+  margin-top: -20px;
+  margin-right: 20px;
+}
+.jumbotron{
+  display:  flex;
+  justify-content: space-around;
 }
   }
   

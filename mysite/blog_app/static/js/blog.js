@@ -84,44 +84,98 @@ window.addEventListener('load', ()=> {
             localStorage.setItem('btn_checked', el.target.checked);
     }); 
 
+    if(window.location.href.indexOf("q=")> -1){ 
+        window.scroll({
+                top:675, left:0, behavior: 'smooth'
+            });
+        }
+
 // WEATHER API FETCH
-try {
-    var weatherBtn = localStorage.getItem('weather_data');
+    try {
+        var weatherBtn = localStorage.getItem('weather_data');
 
-    var city= document.getElementById("city");
-    
-     if(weatherBtn !== null && weatherBtn !== ''){
-         if(city.value !== null){
-        document.getElementById("city").value = weatherBtn;
+        var city= document.getElementById("city");
+        
+            if(weatherBtn !== null && weatherBtn !== ''){
+                if(city.value !== null){
+                document.getElementById("city").value = weatherBtn;
 
-        weatherBalloon(weatherBtn);
-     }
-     else{
-        weatherBalloon('Earth');
-     }
-    }
-  
-        document.getElementById("city").addEventListener('blur', (event) =>{
-        event.preventDefault();
+                weatherBalloon(weatherBtn);
+            }
+            else{
+                weatherBalloon('Earth');
+            }
+            }
+        
+        // document.getElementById("city").addEventListener('blur', (event) =>{
+        // event.preventDefault();
+        // citySearch();
+        // });
 
-        const city= document.getElementById("city").value;
-        loadImg(city);
-        localStorage.setItem('weather_data', city);
-
-        if (city !== ''){
-         weatherBalloon(city);
+        document.getElementById("city").addEventListener('keydown', (eve) =>{
+        if (eve.code === "Enter" || eve.code === "NumpadEnter"){
+        citySearch();
         }
-        else{
-            weatherBalloon('Earth');
-        }
-     });
+      });
     }
     catch(err) {}
 });
 
+let citySearch = () => {
+    const city= document.getElementById("city").value;
+    loadImg(city);
+    localStorage.setItem('weather_data', city);
+
+    if (city !== ''){
+     weatherBalloon(city);
+    }
+    else{
+        weatherBalloon('Earth');
+    }
+}
+
+ //Repoponsive reload on window resize
+ window.addEventListener('resize',triggerWindowRefresh);
+
+ function triggerWindowRefresh() {
+ let windowSize= window.matchMedia("(min-width: 1000px)")
+ if (windowSize.matches){
+     document.querySelector("nav").classList.add("fixed-top");
+     let uImageId= document.querySelectorAll("#unsplashImageId");
+         for(var i =0; i<uImageId.length; i++)
+         {
+             uImageId[i].classList.remove("unsplashImageMob");
+             uImageId[i].classList.add("unsplashImageDesktop");
+         }
+
+     document.onscroll= ()=> {
+         if(document.documentElement.scrollTop > 25){
+         document.querySelector("nav").classList.add("nav-bgscroll");
+         document.querySelector("nav").classList.add("nav-bgscroll-out");
+         }
+         else{
+             document.querySelector("nav").classList.remove("nav-bgscroll");
+         }
+     };
+    }
+    else{
+     document.querySelector("nav").classList.remove("fixed-top");
+     let uImageId= document.querySelectorAll("#unsplashImageId");
+     for(var i =0; i < uImageId.length; i++)
+         {
+             uImageId[i].classList.remove("unsplashImageDesktop");
+             uImageId[i].classList.add("unsplashImageMob");
+         }
+             document.getElementById("city").addEventListener('blur', (event) =>{
+             event.preventDefault();
+             citySearch();
+             });
+    }
+ }
+
 //Weather API
 function weatherBalloon(cityID) {
-    var key = '';
+    var key = '60d7a2f1a6ebc07803526f75beb458ac';
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityID}&units=metric&APPID=${key}`)
     .then(res=> res.json())
     .then((data) => {
@@ -148,7 +202,7 @@ function weatherBalloon(cityID) {
           console.error("GET ERROR", error);
           document.getElementById('description').innerHTML = 'Error';
           document.getElementById('temp').innerHTML ='';
-          document.getElementById('temp-max').innerHTML = 'Please check City name and try again.';
+          document.getElementById('temp-max').innerHTML = 'Please check city name and try again.';
           document.getElementById('temp-min').innerHTML = '';
 	      document.getElementById('location').innerHTML = '';
           document.getElementById('openweathercredits').innerHTML = '';
@@ -157,44 +211,9 @@ function weatherBalloon(cityID) {
           //catch errors
         }
 
- //Repoponsive reload on window resize
-    window.addEventListener('resize',triggerWindowRefresh);
-
-    function triggerWindowRefresh() {
-    let windowSize= window.matchMedia("(min-width: 1000px)")
-    if (windowSize.matches){
-        document.querySelector("nav").classList.add("fixed-top");
-        let uImageId= document.querySelectorAll("#unsplashImageId");
-            for(var i =0; i<uImageId.length; i++)
-            {
-                uImageId[i].classList.remove("unsplashImageMob");
-                uImageId[i].classList.add("unsplashImageDesktop");
-            }
-
-        document.onscroll= ()=> {
-            if(document.documentElement.scrollTop > 25){
-            document.querySelector("nav").classList.add("nav-bgscroll");
-            document.querySelector("nav").classList.add("nav-bgscroll-out");
-            }
-            else{
-                document.querySelector("nav").classList.remove("nav-bgscroll");
-            }
-        };
-       }
-       else{
-        document.querySelector("nav").classList.remove("fixed-top");
-        let uImageId= document.querySelectorAll("#unsplashImageId");
-        for(var i =0; i < uImageId.length; i++)
-            {
-                uImageId[i].classList.remove("unsplashImageDesktop");
-                uImageId[i].classList.add("unsplashImageMob");
-            }
-       }
-    }
-
     //Unsplash Images
     function loadImg(city){
-        const clientId = ''
+        const clientId = 'K3yD-g0mDi9czhIQvX4-0kfDW8AJCRGmJXXm4bkhqwE'
         const url = `https://api.unsplash.com/photos/random?query=${city} landscape&client_id=${clientId}`;
 
         let imageElement = document.querySelectorAll(".unsplashImage");

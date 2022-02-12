@@ -20,7 +20,6 @@
             <div class="postcontent">
             <p>{{ post.text|safe|linebreaksbr }}</p>
 
-
             {% if post.author|safe != "superuser" %}
             <div class="postauthor">
               Posted by: @{{ post.author|lower|safe|linebreaksbr }}
@@ -31,7 +30,7 @@
 
             {% if request.user|safe == post.author|safe or request.user.is_superuser  %}
                 <a class="btn btn-primary" title="Edit" href="{% url 'post_edit' pk=post.pk %}"><i class="bi bi-pen-fill"></i></a>
-                <a class="btn btn-primary" title="Delete" href="{% url 'post_remove' pk=post.pk %}"><i class="bi bi-trash-fill"></i></a>
+                <a class="btn btn-danger" title="Delete" href="{% url 'post_remove' pk=post.pk %}"><i class="bi bi-trash-fill"></i></a>
             {% endif %}
 
   <hr>
@@ -44,11 +43,11 @@
          <div class="removeapprove">
             <div class="postcomment">{{ comment.text|safe|linebreaksbr }}</div>
               {% if not comment.approved_comment %}
-                  <a class="btn btn-primary" title="Remove" href="{% url 'comment_remove' pk=comment.pk %}"><i class="bi bi-x-lg"></i> Delete</a>
-                  <a class="btn btn-primary" title="Approve" href="{% url 'comment_approve' pk=comment.pk %}"><i class="bi bi-check-lg"></i> Approve</a>
+                  <a class="btn btn-danger" title="Remove" href="{% url 'comment_remove' pk=comment.pk %}"><i class="bi bi-x-lg"></i>Delete</a>
+                  <a class="btn btn-success" title="Approve" href="{% url 'comment_approve' pk=comment.pk %}"><i class="bi bi-check-lg"></i>Approve</a>
                   {% endif %}
               </div> 
-          <p>Posted by: <strong>{{ comment.author }}</strong></p>
+          <p>Posted by: @<strong>{{ comment.author }}</strong></p>
       {% endif %}
   {% empty %}
       <p>No comments posted.</p>

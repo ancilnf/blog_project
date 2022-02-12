@@ -7,7 +7,7 @@
     <form method="POST" class="post-form">
     {% csrf_token %}
     <div class="form-group">
-        <h5>Author: {{ user.username }}</h5>
+        <h5 style="padding-left: 5px;">Author: {{ user.username }}</h5>
         <br>
         {{ form.title }} 
         <br>

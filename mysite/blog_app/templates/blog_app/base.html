@@ -30,35 +30,26 @@
         <div class="container-fluid" id="navbarContent">
             <!-- <a class="navbar-brand nav-padding link-text-brand" id="bigbrand" href="{% url 'post_list' %}">My Blog</a> -->
            <a href="{% url 'post_list' %}"><img class="link-logo" src="/static/pictures/Logo.png" title="My Blog"></img></a> 
-            
-            <!-- <form action="" method="get">
-              <div class="input-group">
-                <input class='form-control form-control-md searchPost' type="text" placeholder="Search Post.." name='q' >
-                <div class="input-group-append input-group-md" >
-                  <button class="btn btn-outline-secondary searchPostButton" type= 'submit'><i class="bi bi-search"></i></button>
-                </div>
-              </div>
-          </form> -->
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
 
-          <div class="collapse navbar-collapse nav-fill" id="navbarSupportedContent">
-             <ul class="nav nav-pills ms-auto nav-fill mx-auto">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav mx-auto mb-2">
                 <li class="nav-item"><a class="nav-link link-text" aria-current="page" href="{% url 'post_list' %}">Home</a></li>
                
               {% if user.is_authenticated %}
-               <li class="nav-item"><a class="nav-link link-text " aria-current="page" style="text-align: end; color: #08800e" href="{% url 'post_new' %}">New Post</a></li>
+               <li class="nav-item"><a class="nav-link link-text " aria-current="page" style="color: #08800e" href="{% url 'post_new' %}">New Post</a></li>
                <li class="nav-item"><a class="nav-link link-text" aria-current="page" href="{% url 'post_draft_list' %}">Drafts</a></li>
-               <li class="nav-item"><p class="nav-link link-text-user" style="transform: scale(1.1);color:rgb(65, 105, 138)">Hello: {{ user.username }}</p></li>
-               <li class="nav-item"><a class="nav-link link-primary link-text-log" title="Log Out" aria-current="page" href="{% url 'logout' %}" style="color: rgb(34, 158, 55);"><i class="bi bi-person-x-fill"></i></a></li>
+               <li class="nav-item"><a class="nav-link link-primary link-text-log" style="color: #088040" title="Log Out" aria-current="page" href="{% url 'logout' %}" style="color: rgb(34, 158, 55);"><i class="bi bi-person-x-fill"></i> Log Out</a></li>
                {% else %}
-               <li class="nav-item"><a class="nav-link link-primary link-text-log" title="Log In" aria-current="page" href="{% url 'login' %}"><i class="bi bi-person-circle"></i> Log in</a></li>
+               <li class="nav-item"><a class="nav-link link-primary link-text-log" style="color: #08800e" title="Log In" aria-current="page" href="{% url 'login' %}"><i class="bi bi-person-circle"></i> Log in</a></li>
                {% endif %}
              </ul>
             </div>
-
+            {% if user.is_authenticated %}
+            <p class="nav-link link-text-user" style="color:rgb(65, 105, 138)">Welcome: {{ user.username }}</p>
+            {% endif %}
             <div class="switch">
               <input id="switchld" class="switch__input" name="switch" type="checkbox" checked>
               <!-- <label class="switch__label bi-brightness-high center" for="switchld"></label> -->

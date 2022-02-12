@@ -7,7 +7,7 @@
     {% csrf_token %}
     <hr>
     <div class="form-group">
-    {{ form.author }}
+    <h5 style="padding-left: 5px;">Author: {{ user.username }}</h5>
     <br>
     {{ form.text }}
     </div>

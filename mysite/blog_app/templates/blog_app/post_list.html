@@ -6,13 +6,14 @@
 <div class="mainImage">
     <img src="/static/pictures/PostPlaceholder2.jpg" title="" alt="Loading..." id="unsplashImageId2" class="unsplashImageMain" alt="">
     <p class="imageRedirectMain">Photo by <em><a class="imageRedirect" target="_blank" href="https://unsplash.com/photos/5J1bHRX1fNw" rel="noreferrer noopener">Ray Mallick</a></em> on <em><a href="https://unsplash.com/" target="_blank" rel="noreferrer noopener">Unsplash!</a></em></p>
-    <p class="inspirationalQuote"> ** insert inspirational quote here **</p>
+    <p class="inspirationalQuote"> Hey there,
+        Welcome to My Blog
+    </p>
 
     <div class="weather-api">
      <div class='form-group'></div>
      <h1 class='weatherfont mt-2'>Weather</h1>
-     <input class='form-control city' id='city' type="text" placeholder="Enter city name..">
-
+        <input class='form-control city' id='city' type="text" placeholder="Enter city name..">
     <div class="">
         <div class='description' id="description"></div>
         <h3 id="temp"></h3>
@@ -87,7 +88,7 @@
 <div class="centerform">
 
     <div class="p-4">
-        <form action="" method="get">
+        <form action="" method="get" id ="searchForm">
         <div class="input-group">
           <input class='form-control form-control-md searchPost' type="text" placeholder="Search Post.." name='q' >
           <div class="input-group-append input-group-md" >
@@ -249,9 +250,9 @@
 
     <div class="footer-col">
         <ul>
-          <li><a href="{% url 'about' %}"><i class="bi bi-file-person-fill"> About</i> </a></li>
+          <li><a href="{% url 'about' %}"><i class="bi bi-file-person-fill"> About</i></a></li>
           <hr>
-          <li><a href="https://www.github.com/ancilnf/" target="_blank" rel="noreferrer noopener"><i class="bi bi-github"> GitHub</i> </a></li>
+          <li><a href="https://www.github.com/ancilnf/" target="_blank" rel="noreferrer noopener"><i class="bi bi-github"> GitHub</i></a></li>
           <hr>
           <li><a href="https://www.linkedin.com/in/ancil-fernandes/" target="_blank" rel="noreferrer noopener"><i class="bi bi-linkedin"> LinkedIn</i></a></li>
         </ul>
