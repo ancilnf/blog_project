@@ -166,10 +166,14 @@ let citySearch = () => {
              uImageId[i].classList.remove("unsplashImageDesktop");
              uImageId[i].classList.add("unsplashImageMob");
          }
+
+            const cityChk = document.getElementById("city");
+            if (cityChk !== null){
              document.getElementById("city").addEventListener('blur', (event) =>{
              event.preventDefault();
              citySearch();
              });
+            }
     }
  }
 
