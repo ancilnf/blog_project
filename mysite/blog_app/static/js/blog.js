@@ -175,17 +175,14 @@ let citySearch = () => {
 
             const cityChk = document.getElementById("city");
             if (cityChk !== null){
-             document.getElementById("city").addEventListener('blur', (event) =>{
-             event.preventDefault();
-             citySearch();
-             });
+             document.getElementById("city").addEventListener('blur', citySearch);
             }
     }
  }
 
 //Weather API
 function weatherBalloon(cityID) {
-    var key = '';
+    var key = '60d7a2f1a6ebc07803526f75beb458ac';
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityID}&units=metric&APPID=${key}`)
     .then(res=> res.json())
     .then((data) => {
@@ -223,7 +220,7 @@ function weatherBalloon(cityID) {
 
     //Unsplash Images
     function loadImg(city){
-        const clientId = ''
+        const clientId = 'K3yD-g0mDi9czhIQvX4-0kfDW8AJCRGmJXXm4bkhqwE'
         const url = `https://api.unsplash.com/photos/random?query=${city} landscape&client_id=${clientId}`;
 
         let imageElement = document.querySelectorAll(".unsplashImage");
