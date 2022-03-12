@@ -37,7 +37,7 @@ window.addEventListener('load', ()=> {
         // const lightMode = document.querySelector('.switch__label');
         //     lightMode.classList.remove("bi-moon-stars");
         //     lightMode.classList.add("bi-brightness-high");
-            
+
         const navIcon= document.querySelector(".techfont");
             navIcon.classList.remove("navbar-light");
             navIcon.classList.add("navbar-dark");
@@ -82,20 +82,26 @@ window.addEventListener('load', ()=> {
             navIcon.classList.add("navbar-light");
         }
             localStorage.setItem('btn_checked', el.target.checked);
-    }); 
+    });
 
-    if(window.location.href.indexOf("q=")> -1){ 
+    if(window.location.href.indexOf("q=")> -1){
         window.scroll({
                 top:675, left:0, behavior: 'smooth'
             });
         }
+
+            document.getElementById("skip").addEventListener('click', (e) =>{
+             window.scroll({
+                    top:500, left:0, behavior: 'smooth'
+                    });
+             });
 
 // WEATHER API FETCH
     try {
         var weatherBtn = localStorage.getItem('weather_data');
 
         var city= document.getElementById("city");
-        
+
             if(weatherBtn !== null && weatherBtn !== ''){
                 if(city.value !== null){
                 document.getElementById("city").value = weatherBtn;
@@ -106,7 +112,7 @@ window.addEventListener('load', ()=> {
                 weatherBalloon('Earth');
             }
             }
-        
+
         // document.getElementById("city").addEventListener('blur', (event) =>{
         // event.preventDefault();
         // citySearch();
@@ -179,13 +185,13 @@ let citySearch = () => {
 
 //Weather API
 function weatherBalloon(cityID) {
-    var key = '';
+    var key = '60d7a2f1a6ebc07803526f75beb458ac';
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityID}&units=metric&APPID=${key}`)
     .then(res=> res.json())
     .then((data) => {
 
         const weatherDescription = data.weather[0].description;
-        
+
         let description = document.getElementById('description');
         if (description.innerHTML !== '[object HTMLInputElement]') {
         document.getElementById('description').innerHTML = weatherDescription;
@@ -211,13 +217,13 @@ function weatherBalloon(cityID) {
 	      document.getElementById('location').innerHTML = '';
           document.getElementById('openweathercredits').innerHTML = '';
       });
-      
+
           //catch errors
         }
 
     //Unsplash Images
     function loadImg(city){
-        const clientId = ''
+        const clientId = 'K3yD-g0mDi9czhIQvX4-0kfDW8AJCRGmJXXm4bkhqwE'
         const url = `https://api.unsplash.com/photos/random?query=${city} landscape&client_id=${clientId}`;
 
         let imageElement = document.querySelectorAll(".unsplashImage");
@@ -226,7 +232,7 @@ function weatherBalloon(cityID) {
 
         fetch(url)
             .then(res => res.json())
-            .then((picture) => { 
+            .then((picture) => {
                 imageElementMain[0].src = picture.urls.regular;
                 imageLink[0].innerHTML =picture.user.name;
                 imageLink[0].href= picture.links.html;
@@ -236,7 +242,7 @@ function weatherBalloon(cityID) {
             //     imageElement[img].title = `Photo by ${picture.user.name} on Unsplash`;
             //     imageLink[img].href= picture.links.html;
             //     imageElement[img].onerror ='';
-            // }            
+            // }
             })
             .catch((err)=> {
                 console.error("ERROR", err);
