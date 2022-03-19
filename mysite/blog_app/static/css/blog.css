@@ -546,7 +546,49 @@ transform: translateY(2px);
   padding: 20px 0 0 100px;
 }
 
+.modalCookie{
+  font-family: 'Open Sans';
+  padding: 0;
+  max-width: 100ch;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border: none;
+  border-radius: 8px;
+}
+.modalCookie p {
+  padding: 8px 15px 8px 15px;
+  margin: 0;
+}
+.modalCookie button {
+  margin: 15px;
+}
+.modalCookie div{
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+  border: none;
+  color: black; 
+  padding: 0;
+  background-color: rgb(80, 147, 209);
+  justify-content: space-evenly;
+}
+#modalCookieButton {
+  background-color: rgb(255, 255, 255);
+  justify-content: center;
+}
+.modalCookie::backdrop{
+  /* background-color: hsla(198, 14%, 29%, 0.75); */
+  backdrop-filter: blur(2px);
+}
+
 @media (max-width: 999px) {
+  .modalCookie{
+    max-width: 35ch;
+  }
+  .modalCookie div{
+    font-size: 1.55em;
+  }
+
   .postblock{width: 100%;}
   .btn-comment{position: relative; float: right}
   .login-signup-container{
@@ -706,6 +748,18 @@ transform: translateY(2px);
   padding-right: 2.5px;
   font-size: 1em;
   text-align: end;
+}
+.link-text:hover{
+  padding-left: 10px;
+  transform: none;
+}
+.link-text-brand:hover{
+  padding-left: 10px;
+  transform: none;
+}
+.link-text-log:hover{
+ padding-left: 10px;
+ transform: none;
 }
 .switch {
   width: 0;

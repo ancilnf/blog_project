@@ -4,6 +4,28 @@ window.addEventListener('load', ()=> {
 
     var button = localStorage.getItem('btn_checked');
 
+    var dialogBtn = localStorage.getItem('btn_dialog');
+
+    const modal = document.getElementById("modalCookie");
+    modal.showModal();
+    
+    const acceptModal = document.querySelector(".accept-button");
+    const declineModal = document.querySelector(".decline-button");
+
+    if (dialogBtn === 'true'){
+        modal.close();
+        }
+
+    acceptModal.addEventListener('click', () => {
+        modal.close();
+        localStorage.setItem('btn_dialog', 'true');
+        })
+
+    declineModal.addEventListener('click', () => {
+        modal.close();
+        localStorage.setItem('btn_dialog', 'false');
+        })
+
     //Light Mode
     if (button === 'false') {
         document.getElementById('switchld').checked = false

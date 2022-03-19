@@ -67,18 +67,29 @@
     {% block weather %}
     {% endblock %}
    </div>
-      
-      <div class="content container loader">
-        <div class="d-flex flex-row">
-          <div class="col-12 p-2">
-              <div class="blog_posts">
-                {% block content %}
-                {% endblock %}
-              </div>
-            </div>
-          </div>
-    </div>
 
+   <div>
+    <dialog class="modalCookie" id="modalCookie">
+      <div>We respect your privacy</div>
+      <p>Our website uses cookies to enhance your browsing experience.</p>
+      <p><strong>By clicking "Accept", you accept the use of all cookies.</strong></p>
+      <div id="modalCookieButton">
+        <button class="btn btn btn-success accept-button">Accept</button> 
+        <button class="btn btn btn-danger decline-button">Decline</button> 
+    </div>
+    </dialog>
+   </div>
+      
+  <div class="content container loader">
+    <div class="d-flex flex-row">
+      <div class="col-12 p-2">
+          <div class="blog_posts">
+            {% block content %}
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+  </div>
 
     {% block footer %}
     {% endblock %}

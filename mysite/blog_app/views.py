@@ -8,6 +8,7 @@ from blog_app.forms import PostForm, CommentForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -87,8 +88,7 @@ class DraftListView(LoginRequiredMixin,ListView):
     model = Post
 
     def get_queryset(self):
-        return Post.objects.filter(published_date__isnull=True).order_by('created_date')
-
+        return Post.objects.filter(published_date__isnull=True, author = self.request.user).order_by('created_date')
 
 #######################################
 ## Functions that require a pk match ##
