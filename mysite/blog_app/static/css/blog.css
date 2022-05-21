@@ -554,7 +554,22 @@ transform: translateY(2px);
   color: black;
   border: none;
   border-radius: 8px;
+  animation: opac 1s;
 }
+
+@keyframes opac{
+ 0% {
+      transform: translateX(-1000px);
+ }
+  50% {
+    transform: translateX(50px);
+  }
+
+ 100% {
+  transform: translateX(0px);
+ }
+}
+
 .modalCookie p {
   padding: 8px 15px 8px 15px;
   margin: 0;
